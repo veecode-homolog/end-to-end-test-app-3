@@ -1,0 +1,8 @@
+project:
+  name: end-to-end-test-app-3
+  description: 
+  java:
+    package: codes.platform.demo
+  language: java
+  framework: springboot
+  applicationPort: 8080

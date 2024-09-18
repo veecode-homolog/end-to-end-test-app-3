@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: end-to-end-test-app-3 
+spec:
+  selector:
+    matchLabels:
+      app: end-to-end-test-app-3
+  template:
+    metadata:
+      labels:
+        app: end-to-end-test-app-3
+    spec:
+      containers:
+        - image: okteto.dev/java-gradle-end-to-end-test-app-3:1.0.0
+          name: end-to-end-test-app-3
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: end-to-end-test-app-3
+spec:
+  type: ClusterIP
+  ports:
+    - name: "end-to-end-test-app-3"
+      port: 8080
+  selector:
+    app: end-to-end-test-app-3
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: end-to-end-test-app-3
+  annotations:
+    dev.okteto.com/generate-host: end-to-end-test-app-3
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: end-to-end-test-app-3
+                port:
+                  number: 8080
+            path: /
+            pathType: ImplementationSpecific

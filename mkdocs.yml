@@ -1,0 +1,8 @@
+site_name: "end-to-end-test-app-3"
+site_description: 
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: end-to-end-test-app-3
+  annotations:
+    github.com/project-slug: veecode-homolog/end-to-end-test-app-3
+    backstage.io/techdocs-ref: dir:..
+    backstage.io/kubernetes-id: "end-to-end-test-app-3"
+    vault.io/secrets-path: "end-to-end-test-app-3"
+    grafana/dashboard-selector: "end-to-end-test-app-3"
+    grafana/alert-label-selector: "alertname=end-to-end-test-app-3"
+    argocd/proxy-url: '/argocd/api'
+    argocd/app-name: "end-to-end-test-app-3"
+    kong-manager/service-name: veecode-homolog.end-to-end-test-app-3-service-0.8080
+    kong-manager/instance: /kong-manager/api
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "group:default/admin"
